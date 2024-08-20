@@ -19,7 +19,7 @@ while(opcao != 7):
 
     if opcao == 1:
         cpf = input("Informe o cpf do Usuario: ").strip()
-        titular = int(input("Informe o titular: ")) 
+        titular = input("Informe o titular: ")
         saldo = float(input("Informe o saldo do Usuario: "))
         tipo = int(input("Informe o tipo de Conta: 1) Corrente  2) Poupança: "))
         numerocc = int(input("Informe o Numero da Conta: "))
@@ -68,12 +68,12 @@ while(opcao != 7):
     elif opcao !=7:
             print("Opção não existente tente novamente!")
 
-print("***Bem vindo ao Banco!***")
-print("1) Criar conta")
-print("2) Depositar")
-print("3) Sacar ")
-print("4) Verificar Saldo")
-print("5) Verificar Rendimento")
-print("6) Aplicar Rendimento")
-print("7) SAIR ")
-opcao = int(input("Digite a sua opção: "))
+    print("***Bem vindo ao Banco!***")
+    print("1) Criar conta")
+    print("2) Depositar")
+    print("3) Sacar ")
+    print("4) Verificar Saldo")
+    print("5) Verificar Rendimento")
+    print("6) Aplicar Rendimento")
+    print("7) SAIR ")
+    opcao = int(input("Digite a sua opção: "))
