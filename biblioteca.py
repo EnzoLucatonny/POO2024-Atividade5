@@ -24,7 +24,7 @@ class Biblioteca:
 
     def listar_livro(self):
         if not self.__livros:
-            print("Agenda vazia.")
+            print("Biblioteca vazia.")
         else:
             for livro in self.__livros:
                 livro.exibirLivro()

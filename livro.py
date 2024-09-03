@@ -1,7 +1,7 @@
 from data import Data
 from autor import Autor
 class Livro:
-    def __init__(titulo, autor, anoPublicacao):
+    def __init__(self, titulo, autor, anoPublicacao):
         self.__titulo = titulo
         self.__autor = autor
         self.__anoPublicacao = anoPublicacao
@@ -17,5 +17,6 @@ class Livro:
 
     def exibirLivro(self):
         print(f"titulo: {self.__titulo}")
-        print(f"autor: {self.__autor}")
-        print(self.__anoPublicacao.getData()) 
+        print("autor: ")
+        self.__autor.exibirAutor() 
+        print(self.__anoPublicacao) 

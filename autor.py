@@ -1,6 +1,6 @@
 from data import Data
 class Autor:
-    def __init__(nome, nacionalidade, dataNascimento)
+    def __init__(self, nome, nacionalidade, dataNascimento):
         self.__nome = nome
         self.__nacionalidade = nacionalidade
         self.__dataNascimento = dataNascimento
@@ -17,4 +17,4 @@ class Autor:
     def exibirAutor(self):
         print(f"Nome: {self.__nome}")
         print(f"Nacionalidade: {self.__nacionalidade}")
-        print(self.__dataNascimento.getData())
+        print(self.__dataNascimento)
