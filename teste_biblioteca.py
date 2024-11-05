@@ -1,61 +1,54 @@
-from livro import Livro
-from autor import Autor
-from biblioteca import Biblioteca
-
-def adicionar_livro():
-    titulo = input("Digite o titulo do livro: ")
-    anoPublicacao = input("Digite o ano de publicação do livro: ")
-    nome = input("Digite o nome do autor(a) do livro: ")
-    nacionalidade = input("Digite a nacionalidade do autor(a) do livro: ")
-    dataNascimento = input("Digite a data de nascimento do autor(a) do livro: ")
-    autor = Autor(nome, nacionalidade, dataNascimento)
-    livro = Livro(titulo, autor, anoPublicacao)
-    return livro
-
-def exibir_menu():
-    print("\nMenu:")
-    print("1) Adicionar Livro")
-    print("2) Remover Livro")
-    print("3) Busca Livro")
-    print("4) Listar de Livros")
-    print("5) SAIR ")
+from Biblioteca import Biblioteca
+from Livro import Livro
+from Autor import Autor
 
 biblioteca = Biblioteca()
+opcao = "0"
 
-while True:
-    exibir_menu()
+while opcao != "6":
+    print("\nMenu:")
+    print("1. Adicionar Livro")
+    print("2. Remover Livro")
+    print("3. Buscar Livro")
+    print("4. Listar Livros")
+    print("5. Salvar dados dos livros em arquivo")
+    print("6. Sair")
+    
     opcao = input("Escolha uma opção: ")
 
-    if opcao == '1':
-        livro = adicionar_livro()
-        biblioteca.inserir_livro(livro)
-        print("Livro adicionado com sucesso!")
+    if opcao == "1":
+        titulo = input("Título do Livro: ")
+        nome_autor = input("Nome do Autor: ")
+        nacionalidade = input("Nacionalidade do Autor: ")
+        data_nascimento = input("Data de Nascimento do Autor (formato: DD/MM/AAAA): ")
+        
+        ano_publicacao = input("Ano de Publicação: ")
+        while not ano_publicacao.isdigit():
+            print("Ano de Publicação inválido. Por favor, insira um número inteiro.")
+            ano_publicacao = input("Ano de Publicação: ")
+        ano_publicacao = int(ano_publicacao)
 
-    elif opcao == '2':
-        nome = input("Digite o nome do livro que deseja buscar: ")
-        livro = biblioteca.buscar_livro(nome)
-        if livro:
-            livro.exibirLivro()
-        else:
-            print("Livro não encontrado.")
+        autor = Autor(nome_autor, nacionalidade, data_nascimento)
+        livro = Livro(titulo, autor, ano_publicacao)
+        biblioteca.adicionarLivro(livro)
 
-    elif opcao == '3':
-        nome = input("Digite o nome do livro que deseja remover: ")
-        if livro.remover_livro(nome):
-            print("Livro removido com sucesso!")
-        else:
-            print("Livro não encontrado.")
+    elif opcao == "2":
+        titulo = input("Título do Livro a remover: ")
+        biblioteca.removerLivro(titulo)
 
-    elif opcao == '4':
-        biblioteca.listar_livro()
+    elif opcao == "3":
+        titulo = input("Título do Livro a buscar: ")
+        biblioteca.buscarLivro(titulo)
 
-    elif opcao == '5':
+    elif opcao == "4":
+        biblioteca.listarLivros()
+
+    elif opcao == "5":
+        arquivo = input("Digite o nome do arquivo: ")
+        biblioteca.salvarEmJson(arquivo)
+
+    elif opcao == "6":
         print("Saindo...")
-        break
 
     else:
-        print("Opção inválida. Tente novamente.")
-
-
-
-
+        print("Opção inválida, tente novamente.")
