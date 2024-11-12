@@ -1,3 +1,4 @@
+from Autor import Autor
 class Livro:
     def __init__(self, titulo, autor, anoPublicacao):
         self.__titulo = titulo
@@ -31,4 +32,8 @@ class Livro:
 
     @classmethod
     def from_dict(cls, dados):
-        return cls(dados['titulo'], Autor.from_dict(dados['autor']), dados['anoPublicacao'])
+        titulo = dados['titulo']
+        autor = Autor.from_dict(dados['autor'])
+        anoPublicacao = dados['anoPublicacao']
+        return cls(titulo, autor, anoPublicacao)
+    

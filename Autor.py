@@ -33,3 +33,10 @@ class Autor:
             "nacionalidade": self.__nacionalidade,
             "dataNascimento": self.__dataNascimento
         }
+    
+    @classmethod
+    def from_dict(cls, dados):
+        nome = dados["nome"]
+        nacionalidade = dados["nacionalidade"]
+        dataNascimento = dados["dataNascimento"]
+        return cls(nome, nacionalidade, dataNascimento)
