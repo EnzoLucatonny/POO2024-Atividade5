@@ -1,3 +1,4 @@
+from Produto import Produto
 import json
 
 class Venda:
@@ -45,3 +46,10 @@ class Venda:
         dados_em_json = json.dumps(objetos_dict)
         with open(produto, 'w') as produto:
             produto.write(dados_em_json)
+
+    def recuperarDeJson(self, arquivo):
+        with open(arquivo, "r", encoding="utf-8") as f:
+            dados_em_dicionario = json.load(f)
+        for dados in dados_em_dicionario:
+            objeto = Produto.from_dict(dados)
+            self.get_produtos().append(objeto)

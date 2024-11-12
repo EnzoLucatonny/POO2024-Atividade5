@@ -32,6 +32,6 @@ class Produto:
     @classmethod
     def from_dict(cls, dados):
         nome = dados["nome"]
-        preço = dados["preço"]
+        preco = dados["preco"]
         quantidade = dados["quantidade"]
-        return cls(nome, preço, quantidade)
+        return cls(nome, preco, quantidade)
